@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.search-form {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.channel-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.channel-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.channel-details h2 {
+    margin: 0;
+    color: #333;
+}
+
+.channel-details p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.channel-description {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.channel-description p {
+    margin: 0;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+
+.tab-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.video-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.video-column {
+    width: 48%;
+}
+
+.video-column h3 {
+    color: #333;
+}
+
+.video-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.video-column li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.video-column li img {
+    width: 120px;
+    height: 67px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.video-info {
+    flex-grow: 1;
+}
+
+.video-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+
+.video-info p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.video-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+#latest-videos {
+    display: none;
+}

@@ -1,15 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>YouTube Research Tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube最強新規リサーチツール</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>YouTube Research Tool</h1>
-    <form method="POST">
-        <input type="text" name="channel_input" placeholder="Channel Name/ID/URL">
-        <input type="text" name="api_key" placeholder="YouTube Data API Key">
-        <input type="submit" value="Research">
-    </form>
+    <div class="container">
+        <h1>Youtube最強新規リサーチツール</h1>
+        <div class="search-form">
+            <input type="text" id="channel-input" placeholder="チャンネル名/チャンネルID/チャンネルURL入力">
+            <input type="text" id="api-key" placeholder="Youtube data APIキー入力">
+            <button id="search-button">リサーチ実行</button>
+        </div>
+        <div id="result" class="hidden">
+            <div class="channel-info">
+                <img id="channel-icon" src="" alt="チャンネルアイコン">
+                <div class="channel-details">
+                    <h2 id="channel-name"></h2>
+                    <p id="subscriber-count"></p>
+                    <p id="total-views"></p>
+                    <p id="video-count"></p>
+                    <p id="created-date"></p>
+                </div>
+            </div>
+            <div class="channel-description">
+                <p id="channel-description"></p>
+            </div>
+            <div class="video-container">
+                <div class="tab-container">
+                    <button class="tab active" data-tab="popular">人気順</button>
+                    <button class="tab" data-tab="latest">最新順</button>
+                </div>
+                <div class="video-list" id="popular-videos">
+                    <div class="video-column">
+                        <h3>人気の動画</h3>
+                        <ul id="popular-regular"></ul>
+                    </div>
+                    <div class="video-column">
+                        <h3>人気のショート動画</h3>
+                        <ul id="popular-shorts"></ul>
+                    </div>
+                </div>
+                <div class="video-list hidden" id="latest-videos">
+                    <div class="video-column">
+                        <h3>最新の動画</h3>
+                        <ul id="latest-regular"></ul>
+                    </div>
+                    <div class="video-column">
+                        <h3>最新のショート動画</h3>
+                        <ul id="latest-shorts"></ul>
+                    </div>
+                </div>
+            </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

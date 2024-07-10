@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チャンネル情報 - YouTube Research Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>YouTube Research Tool</h1>
+    </header>
+    <main>
+        <section class="channel-info">
+            {% if channel_info.banner %}
+            <div class="channel-banner">
+                <img src="{{ channel_info.banner }}" alt="チャンネルバナー">
+            </div>
+            {% endif %}
+            <div class="channel-header">
+                <img src="{{ channel_info.thumbnail }}" alt="チャンネルアイコン" class="channel-icon">
+                <h2>{{ channel_info.title }}</h2>
+            </div>
+            <div class="channel-stats">
+                <p><strong>登録者数:</strong> {{ '{:,}'.format(channel_info.subscriber_count|int) }}</p>
+                <p><strong>総視聴回数:</strong> {{ '{:,}'.format(channel_info.view_count|int) }}</p>
+                <p><strong>動画数:</strong> {{ channel_info.video_count }}</p>
+            </div>
+            <div class="channel-description">
+                <h3>チャンネル説明</h3>
+                <p>{{ channel_info.description }}</p>
+            </div>
+        </section>
+        
+        <section class="video-lists">
+            <div class="popular-videos">
+                <h3>人気動画</h3>
+                <ul>
+                    {% for video in channel_info.popular_videos %}
+                    <li>
+                        <img src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}">
+                        <p>{{ video.snippet.title }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="latest-videos">
+                <h3>最新動画</h3>
+                <ul>
+                    {% for video in channel_info.latest_videos %}
+                    <li>
+                        <img src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}">
+                        <p>{{ video.snippet.title }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <a href="{{ url_for('index') }}" class="back-button">検索に戻る</a>
+    </footer>
+</body>
+</html>
