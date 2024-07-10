@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Research Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>YouTube Research Tool</h1>
+    <form method="POST">
+        <input type="text" name="channel_input" placeholder="Channel Name/ID/URL">
+        <input type="text" name="api_key" placeholder="YouTube Data API Key">
+        <input type="submit" value="Research">
+    </form>
+</body>
+</html>
