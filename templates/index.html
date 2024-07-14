@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube最強新規リサーチツール</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Youtube最強新規リサーチツール</h1>
+        <div class="search-form">
+            <input type="text" id="channel-input" placeholder="チャンネル名/チャンネルID/チャンネルURL入力">
+            <input type="text" id="api-key" placeholder="Youtube data APIキー入力">
+            <input type="text" id="openai-api-key" placeholder="OPEN AI APIキー入力">
+            <button id="search-button">リサーチ実行</button>
+        </div>
+        <div id="result" class="hidden">
+            <div class="channel-info">
+                <img id="channel-icon" src="" alt="チャンネルアイコン">
+                <div class="channel-details">
+                    <h2 id="channel-name"></h2>
+                    <p id="channel-id"></p>
+                    <p id="subscriber-count"></p>
+                    <p id="total-views"></p>
+                    <p id="video-count"></p>
+                    <p id="created-date"></p>
+                </div>
+            </div>
+            <div class="channel-description">
+                <h3>チャンネル説明</h3>
+                <p id="channel-description"></p>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
