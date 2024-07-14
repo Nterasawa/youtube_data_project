@@ -54,7 +54,8 @@ def get_channel_info(api_key, channel_input):
                 'video_count': channel['statistics']['videoCount'],
                 'thumbnail': channel['snippet']['thumbnails']['default']['url'],
                 'custom_url': channel['snippet'].get('customUrl', ''),
-                'published_at': channel['snippet']['publishedAt']
+                'published_at': channel['snippet']['publishedAt'],
+                'banner_url': channel['brandingSettings']['image'].get('bannerExternalUrl', '')
             }
 
             # データベースにチャンネル情報を保存
@@ -85,6 +86,8 @@ def search():
             return jsonify({'error': f"Channel not found for input: {channel_input}"})
     except Exception as e:
         return jsonify({'error': f"An error occurred: {str(e)}"})
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

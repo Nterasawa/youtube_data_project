@@ -31,17 +31,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function displayResults(data) {
-        document.getElementById('channel-icon').src = data.thumbnail;
+        // チャンネルヘッダーの設定
+        const channelHeader = document.getElementById('channel-header');
+        if (data.banner_url) {
+            channelHeader.style.backgroundImage = `url(${data.banner_url})`;
+            channelHeader.style.display = 'block';
+        } else {
+            channelHeader.style.display = 'none';
+        }
+    
+        // チャンネルアイコンとリンクの設定
+        const channelIcon = document.getElementById('channel-icon');
+        channelIcon.src = data.thumbnail;
+        
+        const channelLink = document.getElementById('channel-link');
+        channelLink.href = `https://www.youtube.com/channel/${data.channel_id}`;
+    
         const channelNameElement = document.getElementById('channel-name');
         channelNameElement.textContent = data.title;
-        channelNameElement.href = `https://www.youtube.com/channel/${data.channel_id}`;
+    
         document.getElementById('channel-id').textContent = `チャンネルID: ${data.channel_id}`;
         document.getElementById('subscriber-count').textContent = `登録者数: ${formatNumber(data.subscriber_count)}`;
         document.getElementById('total-views').textContent = `総再生数: ${formatNumber(data.view_count)}`;
         document.getElementById('video-count').textContent = `動画数: ${formatNumber(data.video_count)}`;
         document.getElementById('created-date').textContent = `チャンネル開設日: ${formatDate(data.published_at)}`;
         document.getElementById('channel-description').textContent = data.description;
-
+    
         result.classList.remove('hidden');
     }
 

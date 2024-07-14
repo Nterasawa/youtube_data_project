@@ -16,10 +16,15 @@
             <button id="search-button">リサーチ実行</button>
         </div>
         <div id="result" class="hidden">
-            <div class="channel-info">
-                <img id="channel-icon" src="" alt="チャンネルアイコン">
+            <div id="channel-header" class="channel-header"></div>
+            <div class="result-container">
+                <div class="channel-info">
+                    <a id="channel-link" href="#" target="_blank">
+                        <img id="channel-icon" src="" alt="チャンネルアイコン">
+                        <h2 id="channel-name"></h2>
+                    </a>
+                </div>
                 <div class="channel-details">
-                    <h2 id="channel-name"></h2>
                     <p id="channel-id"></p>
                     <p id="subscriber-count"></p>
                     <p id="total-views"></p>
@@ -29,7 +34,7 @@
             </div>
             <div class="channel-description">
                 <h3>チャンネル説明</h3>
-                <p id="channel-description"></p>
+                <div id="channel-description" class="scrollable"></div>
             </div>
         </div>
     </div>
