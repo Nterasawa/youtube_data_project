@@ -36,6 +36,15 @@
                 <h3>チャンネル説明</h3>
                 <div id="channel-description" class="scrollable"></div>
             </div>
+            <div id="video-section">
+                <div id="video-tabs">
+                    <button data-video-type="latest_videos">最新動画</button>
+                    <button data-video-type="popular_videos">人気動画</button>
+                    <button data-video-type="latest_shorts">最新のショート動画</button>
+                    <button data-video-type="popular_shorts">人気のショート動画</button>
+                </div>
+                <div id="video-list"></div>
+            </div>
         </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>

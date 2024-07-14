@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -49,11 +49,11 @@ h1 {
     background-position: center;
     margin-bottom: 20px;
     border-radius: 4px;
-    display: none;  /* 初期状態では非表示 */
 }
 
 .result-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 20px;
 }
@@ -61,6 +61,8 @@ h1 {
 .channel-info {
     display: flex;
     align-items: center;
+    flex: 1;
+    min-width: 300px;
 }
 
 .channel-info a {
@@ -82,6 +84,8 @@ h1 {
     padding: 15px;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 300px;
 }
 
 .channel-details p {
@@ -106,4 +110,79 @@ h1 {
     max-height: 100px;
     overflow-y: auto;
     white-space: pre-wrap;
+}
+
+#video-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#video-tabs button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+    flex: 1;
+    min-width: 200px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#video-tabs button:hover {
+    background-color: #e0e0e0;
+}
+
+#video-tabs button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+#video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.video-card img {
+    width: 100%;
+    height: auto;
+}
+
+.video-card h3 {
+    font-size: 14px;
+    margin: 10px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.video-card p {
+    margin: 5px 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .result-container {
+        flex-direction: column;
+    }
+
+    .channel-info, .channel-details {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #video-tabs button {
+        width: calc(50% - 10px);
+    }
 }
